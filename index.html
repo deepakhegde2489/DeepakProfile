@@ -74,7 +74,7 @@ background-color: #323a4d;
 
 
 <button type="button" id="cmd" class="btn btn-success" style="margin-top: 2%;
-    margin-left: 90%;">Download Resume</button>
+    margin-left: 85%;">Download Resume</button>
 <div id="editor"></div>
 <script>
     var doc = new jsPDF();
@@ -84,21 +84,55 @@ var specialElementHandlers = {
     }
 };
 
-$('#cmd').click(function () {
-    doc.fromHTML($('#content').html(), 1, 1, {
-        'width': 100,
-           
+
+
+
+
+
+function CreatePDFfromHTML() {
+    var HTML_Width = $(".html-content").width();
+    var HTML_Height = $(".html-content").height();
+    var top_left_margin = 15;
+    var PDF_Width = HTML_Width + (top_left_margin * 2);
+    var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+    html2canvas($(".html-content")[0]).then(function (canvas) {
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+        for (var i = 1; i <= totalPDFPages; i++) { 
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+        }
+        pdf.save("Your_PDF_Name.pdf");
+        $(".html-content").hide();
     });
-	
-    doc.save('DeepakHegdeResume.pdf');
+}
 
-
-
-
-
+$('#cmd').click(function () {
+    CreatePDFfromHTML()
 });
 </script>
-<div class="content" id="content">
+
+<div class="card" style="    background-color: #f5eaea;
+    color: white;
+    width: 20%;
+    z-index: 99999999999999999999999999999999999999;
+    height: 100%;
+    padding-left:2%;
+    padding-bottom:2%;
+    
+    margin-top: -4%;
+    margin-left: 4%;
+    border-radius: 3px;">
+  <div class="card-body" style="padding-top:2%">
+  </div>
+  </div>
+<div class="html-content" id="html-content" style="   margin-top: 2%;">
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:594px;height:100%;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px;z-index:-9999999999;">
 <img src="e871de42-dc1a-11eb-a980-0cc47a792c0a_id_e871de42-dc1a-11eb-a980-0cc47a792c0a_files/background1.jpg" width=594 height=842></div>
