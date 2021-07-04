@@ -45,40 +45,112 @@ div.cls_033{font-family:Arial,serif;font-size:8.1px;color:rgb(48,58,77);font-wei
 span.cls_034{font-family:Arial,serif;font-size:8.2px;color:rgb(48,58,77);font-weight:normal;font-style:italic;text-decoration: none}
 div.cls_034{font-family:Arial,serif;font-size:8.2px;color:rgb(48,58,77);font-weight:normal;font-style:italic;text-decoration: none}
 -->
+
+.skills {
+background-color: #323a4d;
+    padding: 2px 2px 2px 2px;
+    border-radius: 4px;
+
+}
 </style>
 <script type="text/javascript" src="e871de42-dc1a-11eb-a980-0cc47a792c0a_id_e871de42-dc1a-11eb-a980-0cc47a792c0a_files/wz_jsgraphics.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+<!--    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>-->
+
+
+
 </head>
 <body>
-<div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:594px;height:842px;border-style:outset;overflow:hidden">
-<div style="position:absolute;left:0px;top:0px">
+
+
+<button type="button" id="cmd" class="btn btn-success" style="margin-top: 2%;
+    margin-left: 90%;">Download Resume</button>
+<div id="editor"></div>
+<script>
+    var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+$('#cmd').click(function () {
+    doc.fromHTML($('#content').html(), 1, 1, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    });
+    doc.save('DeepakHegdeResume.pdf');
+});
+</script>
+<div class="content" id="content">
+<div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:594px;height:85%;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px;z-index:-9999999999;">
 <img src="e871de42-dc1a-11eb-a980-0cc47a792c0a_id_e871de42-dc1a-11eb-a980-0cc47a792c0a_files/background1.jpg" width=594 height=842></div>
 <div style="position:absolute;left:452.50px;top:22.64px" class="cls_003"><span class="cls_003"> </span><A HREF="mailto:deepakrh2489@gmail.com">deepakrh2489@gmail.com</A> </div>
 <div style="position:absolute;left:37.92px;top:19.28px" class="cls_007"><span class="cls_007">Deepak Hegde</span></div>
 <div style="position:absolute;left:493.30px;top:42.32px" class="cls_003"><span class="cls_003">+91 7760302058</span></div>
 <div style="position:absolute;left:38.88px;top:47.31px" class="cls_009"><span class="cls_009">Software Engineer</span></div>
-<div style="position:absolute;left:487.66px;top:62.00px" class="cls_003"><span class="cls_003">Bangalore, India</span></div>
+<div style="position:absolute;left:494.66px;top:62.00px" class="cls_003"><span class="cls_003">Bangalore, India</span></div>
 <div style="position:absolute;left:38.88px;top:69.18px" class="cls_011"><span class="cls_011">Professional Python developer with 4+ years of</span></div>
 <div style="position:absolute;left:38.88px;top:80.12px" class="cls_011"><span class="cls_011">experience in web development. Looking</span></div>
 <div style="position:absolute;left:38.88px;top:91.04px" class="cls_011"><span class="cls_011">forward for an excellent opportunity.</span></div>
 <div style="position:absolute;left:38.88px;top:127.78px" class="cls_014"><span class="cls_014">WORK EXPERIENCE</span></div>
-<div style="position:absolute;left:315.43px;top:127.78px" class="cls_014"><span class="cls_014">SKILLS</span></div>
+<div style="position:absolute;left:315.43px;top:127.78px" class="cls_014"><span class="cls_014">TECHNICAL SKILLS</span></div>
+
 <div style="position:absolute;left:38.88px;top:147.33px" class="cls_015"><span class="cls_015">Software Engineer</span></div>
-<div style="position:absolute;left:322.27px;top:154.54px" class="cls_002"><span class="cls_002">Ajax</span></div>
-<div style="position:absolute;left:358.15px;top:154.14px" class="cls_004"><span class="cls_004">CSS</span><span class="cls_003"> </span><span class="cls_005">    Bootstrap</span><span class="cls_003"> </span><span class="cls_002">    PostresSQL</span><span class="cls_003"> </span><span class="cls_006">    Jquery</span></div>
+<div class="card" style="    background-color: #f5eaea;
+    color: white;
+    width: 44%;
+    z-index: 99999999999999999999999999999999999999;
+    height: auto%;
+    padding-left:2%;
+    padding-bottom:2%;
+    top: 70%;
+    margin-top: 26%;
+    margin-left: 54%;
+    border-radius: 3px;">
+  <div class="card-body" style="padding-top:2%">
+    <span class="label label-primary">Python</span>
+      <span class="label label-primary">ODOO</span>
+      <span class="label label-primary">Wso2 ESB</span>
+      <span class="label label-primary">Django</span>
+      <span class="label label-primary">Openvidu</span>
+      <span class="label label-primary">Ajax</span>
+      <span class="label label-primary">Javascript</span>
+    <span class="label label-primary">Nginx</span>
+      <span class="label label-primary">AWS s3</span>
+      <span class="label label-primary">TogetherJS(Co-Browsing)</span>
+      <span class="label label-primary">Flask</span>
+      <span class="label label-primary">API</span>
+      <span class="label label-primary">Google Business Messaging</span>
+      <span class="label label-primary">Google GIS</span>
+      <span class="label label-primary">Angular 8</span>
+  </div>
+</div>
+
 <div style="position:absolute;left:38.88px;top:160.85px" class="cls_017"><span class="cls_017">Digit Insurance</span></div>
 <div style="position:absolute;left:38.88px;top:178.78px" class="cls_018"><span class="cls_018">09/2020 - Present</span><span class="cls_019">,</span></div>
 <div style="position:absolute;left:224.21px;top:178.78px" class="cls_018"><span class="cls_018">Bangalore,India</span></div>
-<div style="position:absolute;left:322.27px;top:180.08px" class="cls_006"><span class="cls_006">Nginx</span></div>
-<div style="position:absolute;left:364.27px;top:180.08px" class="cls_006"><span class="cls_006">Google Cloud Platform    Javascript</span></div>
+
+
 <div style="position:absolute;left:38.88px;top:189.85px" class="cls_021"><span class="cls_021">General Insurance company. Awarded Asia's General Insurance</span></div>
 <div style="position:absolute;left:38.88px;top:198.58px" class="cls_022"><span class="cls_022">Company of the Year 2019, 2020</span></div>
-<div style="position:absolute;left:322.27px;top:205.78px" class="cls_002"><span class="cls_002">Google Map API</span></div>
+<!--<div style="position:absolute;left:322.27px;top:205.78px" class="cls_002"><span class="cls_002 skills">Google Map API</span></div>-->
 <div style="position:absolute;left:38.88px;top:211.18px" class="cls_018"><span class="cls_018">Achievements/Tasks</span></div>
 <div style="position:absolute;left:47.76px;top:221.96px" class="cls_011"><span class="cls_011">Currently working on WSO2 API integrator (beginner).</span></div>
-<div style="position:absolute;left:316.15px;top:223.28px" class="cls_006"><span class="cls_006">Python</span></div>
-<div style="position:absolute;left:363.67px;top:223.28px" class="cls_002"><span class="cls_002">ODOO</span><span class="cls_003"> </span><span class="cls_002">    Django</span><span class="cls_003"> </span><span class="cls_006">    Angular 8</span><span class="cls_003"> </span><span class="cls_002">    XML</span></div>
+
 <div style="position:absolute;left:47.76px;top:234.68px" class="cls_011"><span class="cls_011">Successfully built a Django application for managing over</span></div>
-<div style="position:absolute;left:316.15px;top:241.45px" class="cls_002"><span class="cls_002">WSO2    Openvidu</span></div>
+
 <div style="position:absolute;left:47.76px;top:245.63px" class="cls_011"><span class="cls_011">200+ bots single-handedly.</span></div>
 <div style="position:absolute;left:47.76px;top:260.39px" class="cls_011"><span class="cls_011">Successfully built a video conferencing tool using</span></div>
 <div style="position:absolute;left:47.76px;top:271.43px" class="cls_011"><span class="cls_011">Openvidu opensource for conducting surveys,interviews.</span></div>
@@ -134,6 +206,7 @@ div.cls_034{font-family:Arial,serif;font-size:8.2px;color:rgb(48,58,77);font-wei
 <div style="position:absolute;left:315.43px;top:636.64px" class="cls_011"><span class="cls_011">Hindi</span></div>
 <div style="position:absolute;left:315.43px;top:648.54px" class="cls_033"><span class="cls_033">Professional Working Proficiency</span></div>
 </div>
+    </div>
 
 </body>
 </html>
